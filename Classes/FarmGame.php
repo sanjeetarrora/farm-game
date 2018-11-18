@@ -67,6 +67,12 @@ Class FarmGame extends Farm {
             if ($entity != $this->farmer_title)
                 $name = '_' . $entity_name_arr[1];
 
+            /**
+             * Skill: Use Factory Design Pattern
+             * Based on the Farm Member
+             * that particular farm member class is called
+             * for operation specific to it
+             */
             // Create player objects
             $obj_name = $entity . $name . '_obj';
             $$obj_name = new $entity();
