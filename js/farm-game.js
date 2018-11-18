@@ -9,7 +9,7 @@ enterKeyFlag = true; // Flag to maintain enter key press for next turn
 $(document).ready(function(){
 
     // This call is made at the start to get all game settings from server
-    $.get("get-farm-game-details.php", function(data, status){
+    $.get("api/get-farm-game-details.php", function(data, status){
         /*
         These settings make sure you can change the game details
         only from one place i.e. server
@@ -54,7 +54,7 @@ $(document).ready(function(){
 
         // Get the details after a turn 
         $.post(
-            "send-farm-details.php",
+            "api/next-turn.php",
             farmDetails,
             function(data, status){
                 /*if (typeof data == 'string' && data.indexOf("inValid Input") > -1) {

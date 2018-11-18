@@ -31,7 +31,7 @@ abstract Class Farm {
     }
 
     // Chooses the one to be fed
-    public function feedRandomFarmMember() {
+    public function randomMemberToBeFed() {
         $only_eaters_arr = array_keys($this->eaters_turn_count);
         $get_rand_eater_key = array_rand($only_eaters_arr);
         $this->fed_to = $only_eaters_arr[$get_rand_eater_key];
