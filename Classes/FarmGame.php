@@ -84,7 +84,6 @@ Class FarmGame extends Farm {
             }
             else $this->feed($entity_name, $entity);
         }
-
         ++$this->turn_count; // increment every turn
     }
 

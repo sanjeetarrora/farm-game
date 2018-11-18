@@ -19,6 +19,10 @@ function myAutoloader($class_name)
 
 $game_obj = new FarmGame;
 
+/**
+ * Fetch the Game Details here to play
+ * This gives the initial setup config for the UI
+ */
 $game_obj->sendGameDetails();
 
 exit;
