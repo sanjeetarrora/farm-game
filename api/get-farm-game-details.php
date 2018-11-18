@@ -14,7 +14,7 @@ header("Content-Type: application/json; charset=UTF-8");
 spl_autoload_register('myAutoloader');
 function myAutoloader($class_name)
 {
-    require_once '../Classes/' . $class_name.'.php';
+    require_once __DIR__.'/../Classes/' . $class_name.'.php';
 }
 
 $game_obj = new FarmGame;

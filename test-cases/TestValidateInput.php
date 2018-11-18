@@ -13,7 +13,8 @@ Class TestValidateInput
             'Bunny 2'=> 0,
             'Bunny 3'=> 0,
             'Bunny 4'=> 0,
-        ]
+        ],
+        'turnCount' => 69
     ];
 
     public function __constructor()

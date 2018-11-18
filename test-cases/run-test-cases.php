@@ -7,7 +7,7 @@ function myAutoloader($class_name)
     if (strpos($class_name, 'Test') !== false)
         require_once $class_name.'.php';
     else
-        require_once '../Classes/' . $class_name.'.php';
+        require_once __DIR__.'/../Classes/' . $class_name.'.php';
 }
 
 switch ($argv[1]) {
