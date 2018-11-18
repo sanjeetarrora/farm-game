@@ -76,7 +76,7 @@ Class FarmGame extends Farm {
             // Create player objects
             $obj_name = $entity . $name . '_obj';
             $$obj_name = new $entity();
-            $$obj_name->cur_turn_count = $ent_turn_count;
+            $$obj_name->cur_turn_count = $ent_turn_count + 1;
 
             if ($this->fed_to !== $entity_name) {
                 if ($$obj_name->checkIfDead()) $this->death($entity_name);

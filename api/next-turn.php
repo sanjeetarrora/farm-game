@@ -1,10 +1,11 @@
 <?php
 
-/*
-Not the right place for these headers, but as no common routes have written here in a common place.
-In a bigger application, would be in the main entry file where all 
-hits to application are recieved and are further redirected ahead.
-*/
+/**
+ * Not the right place for these headers,
+ * but as no common route keeping it here.
+ * In a bigger application, would be in the main entry file where all
+ * hits to application are recieved and are further redirected ahead.
+ */
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
@@ -24,8 +25,7 @@ if ($game_obj->validateInput($input)) {
 
     /**
      * Skill: SOLID Principles
-     * may be not 100%
-     * but making sure each function
+     * make sure each function
      * performs only 1 task
      */
 

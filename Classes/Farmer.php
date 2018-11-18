@@ -13,7 +13,7 @@ Class Farmer implements FarmPlay {
      * according to thier respective Class
      */
     public function checkIfDead() {
-        if ($this->max_turn_count -1 <= $this->cur_turn_count)
+        if ($this->max_turn_count <= $this->cur_turn_count)
             return true;
         else return false;
     }
