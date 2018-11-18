@@ -7,6 +7,11 @@ Class Bunny implements FarmPlay {
 
     public $cur_turn_count = 0;
 
+    /**
+     * This function can be an example of polymorphism.
+     * Where sharing an interface, the fucntions could behave
+     * according to thier respective Class
+     */
     public function checkIfDead() {
         if ($this->max_turn_count -1 <= $this->cur_turn_count)
             return true;
