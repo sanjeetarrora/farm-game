@@ -57,9 +57,6 @@ $(document).ready(function(){
             "api/next-turn.php",
             farmDetails,
             function(data, status){
-                /*if (typeof data == 'string' && data.indexOf("inValid Input") > -1) {
-                    alert('invalid input. Kindly contact technician.')
-                }*/
                 if (data['status'] == 'Invalid Input') {
                     alert('Invalid input. Kindly contact authorized technician.')
                 }
@@ -92,13 +89,6 @@ $(document).ready(function(){
                     tableRowsHtml = tableRowsHtml + '</tr>';
                     $('#fed-chart').append(tableRowsHtml);
 
-                    // Display messages from server
-                    var message = '';
-                    for (var b in farmDetails['message']['msg']) {
-                        message = message + '<br/>' + farmDetails['message']['msg'][b];
-                    }
-                    farmGameAlert(message, 'msg');
-
                     // If you want to handle it in JS, kindly uncomment the Js code
                     // Handle scenario via JS and display message
                     /*if (farmerDeadFlag) {
@@ -128,6 +118,13 @@ $(document).ready(function(){
                         // farmGameAlert('Game Over', 'result');
                         $('#feed-anyone').prop('disabled', true);
                     }
+                    // Display messages from server
+                    var message = '';
+                    for (var b in farmDetails['message']['msg']) {
+                        message = message + '<br/>' + farmDetails['message']['msg'][b];
+                    }
+                    farmGameAlert(message, 'msg');
+
                     farmGameAlert(farmDetails['message']['status'], 'result');
 
                     // Allow next turn only when ready
