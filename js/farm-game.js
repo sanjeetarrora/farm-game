@@ -64,7 +64,8 @@ $(document).ready(function(){
                     farmDetails = data;
 
                     // Dynamically set the table rows here
-                    var tableRowsHtml = '<tr><td>'+ farmDetails['turnCount'] +'</td>';
+                    var tableRowsHtml = '<tr><td>'+ farmDetails['turnCount']
+                        +'</td>';
                     // Handle scenario via JS and display message
                     // var farmerDeadFlag = false;
                     for (var j in farmEntities) {
@@ -73,7 +74,8 @@ $(document).ready(function(){
                         if (farmDetails['eaters'][farmEntities[j]] == 0) {
                             cellValue = 'Fed';
                         }
-                        else if (farmDetails['eaters'][farmEntities[j]] == undefined) {
+                        else if(farmDetails['eaters'][farmEntities[j]] == undefined)
+                        {
                             if (farmEntities[j] == farmerTitle) {
                                 // Handle scenario via JS and display message
                                 // farmerDeadFlag = true;
@@ -84,7 +86,8 @@ $(document).ready(function(){
                             str = farmEntities[j].replace(/\s+/g, '-');
                             $('#'+str).css('background-color', 'red');
                         }
-                        tableRowsHtml = tableRowsHtml + '<td '+ cellColor +'>' + cellValue + '</td>';
+                        tableRowsHtml = tableRowsHtml + '<td '+ cellColor +'>'
+                            + cellValue + '</td>';
                     }
                     tableRowsHtml = tableRowsHtml + '</tr>';
                     $('#fed-chart').append(tableRowsHtml);
@@ -121,7 +124,8 @@ $(document).ready(function(){
                     // Display messages from server
                     var message = '';
                     for (var b in farmDetails['message']['msg']) {
-                        message = message + '<br/>' + farmDetails['message']['msg'][b];
+                        message = message + '<br/>'
+                            + farmDetails['message']['msg'][b];
                     }
                     farmGameAlert(message, 'msg');
 

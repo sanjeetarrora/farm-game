@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Extending Farm Class
+ * I am inheriting the properties and methods
+ * of Farm Class
+ */
 Class FarmGame extends Farm {
 
     public $eaters_turn_count = [];
@@ -21,20 +26,22 @@ Class FarmGame extends Farm {
         // In php 7.0 you can write i.e. isset($input['eaters_turn_count']) ?? null;
         $this->eaters_turn_count = isset($input['eaters']) ? $input['eaters']: null;
 
-        /*
-        Note: I am not sending turnCount first time
-        TurnCount is set after the first requset and
-        then the same server turncount is used for all operations
-        even incrementing
-        */
+        /**
+         * Note: I am not sending turnCount the first turn
+         * TurnCount is set after the first turn and
+         * then the same server turnCount is used for all operations
+         * even after incrementing
+         */
         $this->turn_count = isset($input['turnCount']) ? $input['turnCount']: 0;
 
+        // check if farmer and turncount has right values
         if (isset($this->eaters_turn_count[$this->farmer_title]) 
             && $this->turn_count >= 0 && $this->turn_count < 50) {
 
             foreach ($this->eaters_turn_count as $entity_name => $ent_turn_count) {
-
                 $entity_name_arr = explode(' ',ucfirst(strtolower($entity_name)));
+
+                // check if other members are farm animals
                 if ($entity_name_arr[0] != $this->farmer_title
                  && !in_array($entity_name_arr[0], $this->farm_animals))
                     return false;
@@ -48,10 +55,12 @@ Class FarmGame extends Farm {
     public function playTurn() {
         $this->randomMemberToBeFed();
         foreach ($this->eaters_turn_count as $entity_name => $ent_turn_count) {
-
-            // Convert to lowercase
-            // Then first letter to uppercase
-            // Then break string to array
+            /**
+             * PHP Skill: use native functions
+             * Convert to lowercase
+             * Then first letter to uppercase
+             * Then break string to array
+             */
             $entity_name_arr = explode(' ',ucfirst(strtolower($entity_name)));
             $entity = $entity_name_arr[0];
             $name = '';
@@ -90,6 +99,14 @@ Class FarmGame extends Farm {
 
     public function checkIfWon() {
         if ($this->turn_count == $this->total_turn_count) {
+
+            /**
+             * PHP Skill: use native functions
+             * Categories could be duplicated in operations
+             * So made sure they are unique
+             * By checking the difference in arrays
+             * making sure min win condition is accomplished
+             */
             if (empty(array_diff($this->farm_win_entities,
                 array_unique($this->c_alive))))
                 $this->game_msg['status'] = 'You win.';

@@ -1,5 +1,11 @@
 <?php
 
+
+/**
+ * Setting it to abstract
+ * so that none can instantiate it
+ * 
+ */
 abstract Class Farm {
     // Ones to be fed in a farm
     public $farm_entities = [
@@ -32,6 +38,12 @@ abstract Class Farm {
 
     // Chooses the one to be fed
     public function randomMemberToBeFed() {
+
+        /**
+         * PHP Skill: use native functions
+         * Get all keys of an array in an array
+         * Pick a random value from an array
+         */
         $only_eaters_arr = array_keys($this->eaters_turn_count);
         $get_rand_eater_key = array_rand($only_eaters_arr);
         $this->fed_to = $only_eaters_arr[$get_rand_eater_key];

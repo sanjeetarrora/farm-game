@@ -22,10 +22,17 @@ $game_obj = new FarmGame;
 // Validate input 
 if ($game_obj->validateInput($input)) {
 
-    /*
-    Calculate the current scenario only.
-    This function can be used if further to be played by command line
-    */
+    /**
+     * Skill: SOLID Principles
+     * may be not 100%
+     * but making sure each function
+     * performs only 1 task
+     */
+
+    /**
+     * Calculate the current scenario only.
+     * This function can be used if further to be played by command line
+     */
     $game_obj->playTurn();
 
     // set messages for the round
